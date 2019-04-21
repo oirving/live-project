@@ -27,7 +27,7 @@ public class DBUtil {
 		return DriverManager.getConnection(url, loginName, password);
 	}
 
-	/* 关闭连接的方法 */
+	/* 鍏抽棴杩炴帴鏂规硶*/
 	public static void close(ResultSet rs, Statement stmt, Connection conn) {
 		try {
 			if (rs != null)
