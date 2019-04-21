@@ -29,6 +29,11 @@ public class TextUtil {
                 presentString = new StringBuilder(line);
             }
         }
+        presentString.append(line);
+        Matcher matcher = pattern.matcher(presentString.toString());
+        if (matcher.find()) {
+            DBUtil.store2DB(matcher);
+        }
     }
 
 }
