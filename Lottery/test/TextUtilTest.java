@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Test;
 import lottery.util.TextUtil;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
