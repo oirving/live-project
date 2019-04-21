@@ -38,21 +38,21 @@ CREATE TABLE `awardrecord` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `chatlog`
--- ----------------------------
-DROP TABLE IF EXISTS `chatlog`;
-CREATE TABLE `chatlog` (
-  `recordId` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'QQ号或邮箱',
-  `userName` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT '用户名',
-  `time` date NOT NULL COMMENT '聊天记录时间',
-  `isUseKeyword` tinyint(4) NOT NULL COMMENT '0没有，1有',
+--
+-- 表的结构 `chat_record`
+--
+
+DROP TABLE IF EXISTS `chat_record`;
+CREATE TABLE IF NOT EXISTS `chat_record` (
+  `recordId` int(11) NOT NULL AUTO_INCREMENT COMMENT ' 	自增',
+  `userId` varchar(64) NOT NULL COMMENT ' 	用户id',
+  `userName` varchar(512) NOT NULL COMMENT ' 	用户名',
+  `time` date NOT NULL COMMENT ' 	聊天记录时间',
+  `isUseKeyword` int(11) NOT NULL COMMENT ' 	0没有，1有',
   `numberOfCharacters` int(11) NOT NULL COMMENT '除去关键词的字符数',
-  `content` varchar(1024) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '聊天记录详情',
-  PRIMARY KEY (`recordId`),
-  KEY `userId` (`userId`),
-  CONSTRAINT `userId` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `content` text CHARACTER SET utf8 NOT NULL COMMENT '聊天记录详情',
+  PRIMARY KEY (`recordId`)
+) ENGINE=MyISAM AUTO_INCREMENT=7700 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of chatlog

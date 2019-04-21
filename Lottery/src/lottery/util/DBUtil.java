@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public class DBUtil {
 	private static final String ip = "127.0.0.1";
 	private static final int port = 3306;
-	private static final String database = "live";
+	private static final String database = "lottery";
 	private static final String encoding = "UTF-8";
 	private static final String loginName = "root";
 	private static final String password = "0523";
