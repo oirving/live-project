@@ -160,4 +160,18 @@ public class DBUtil {
         return Timestamp.valueOf(startTime);
     }
 
+    /**
+     * @param
+     * @return void
+     * @author Murphy
+     * @date 2019/4/21 20:36
+     * @description 在抽奖开始之前清空表
+     */
+    public static void clearTable() throws SQLException {
+
+        String sql = "DELETE FROM `chat_record` WHERE recordId>0;";
+        PreparedStatement preparedStatement = getInstance().prepareStatement(sql);
+        preparedStatement.execute();
+        preparedStatement.close();
+    }
 }

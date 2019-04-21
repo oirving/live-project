@@ -17,7 +17,9 @@ public class TextUtil {
      * @date 2019/4/21 20:31
      * @description 解析文件进数据库的接口
      */
-    public static void resovle(String fileName) throws IOException {
+    public static void resovle(String fileName) throws IOException, SQLException {
+
+        DBUtil.clearTable();
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(fileName)));
         // 每一行
         String line = null;
