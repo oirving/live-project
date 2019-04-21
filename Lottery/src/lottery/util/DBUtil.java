@@ -35,7 +35,8 @@ public class DBUtil {
 		if (connection == null) connection = getConnection();
 		return connection;
 	}
-	/* 关闭连接的方法 */
+  
+	/* 鍏抽棴杩炴帴鏂规硶*/
 	public static void close(ResultSet rs, Statement stmt, Connection conn) {
 		try {
 			if (rs != null)
@@ -62,7 +63,7 @@ public class DBUtil {
 	 * @return void
 	 * @author Murphy
 	 * @date 2019/4/21 17:40
-	 * @description 将消息存储到database, 因为有些地方有emoji，所以表要改成使用utf8mb4。
+	 * @description 锟斤拷锟斤拷息锟芥储锟斤拷database, 锟斤拷为锟斤拷些锟截凤拷锟斤拷emoji锟斤拷锟斤拷锟皆憋拷要锟侥筹拷使锟斤拷utf8mb4锟斤拷
 	 */
 	public static void store2DB(Matcher matcher) {
 		try {
@@ -92,7 +93,7 @@ public class DBUtil {
 	/**
 	 * @author Murphy
 	 * @date 2019/4/21 17:40
-	 * @description 静态内部类
+	 * @description 锟斤拷态锟节诧拷锟斤拷
 	 */
 	static class Content {
 		boolean isUseKeyword;
@@ -104,7 +105,7 @@ public class DBUtil {
 	 * @return lottery.util.DBUtil.Content
 	 * @author Murphy
 	 * @date 2019/4/21 17:40
-	 * @description 解析消息
+	 * @description 锟斤拷锟斤拷锟斤拷息
 	 */
 	private static Content parseContent(String mesage) {
 		Pattern pattern = Pattern.compile("(#.*?#)");
@@ -124,7 +125,7 @@ public class DBUtil {
 	 * @return java.util.Date
 	 * @author Murphy
 	 * @date 2019/4/21 17:26
-	 * @description 解析时间成Date实例
+	 * @description 锟斤拷锟斤拷时锟斤拷锟紻ate实锟斤拷
 	 */
 	private static Date parseTime(String startTime) {
 		java.util.Date date = Calendar.getInstance().getTime();
