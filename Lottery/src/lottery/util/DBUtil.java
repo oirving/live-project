@@ -3,16 +3,19 @@ package lottery.util;
 import java.sql.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-public class DBUtil {
+/**
+ * @author Murphy
+ * @date 2019/4/21 20:08
+ */
+public class DatabaseUtil {
 
     //常量
-    private static final String ip = "127.0.0.1";
-    private static final int port = 3306;
-    private static final String database = "lottery";
-    private static final String encoding = "UTF-8";
-    private static final String loginName = "root";
-    private static final String password = "12345678";
+    private static final String IP = "127.0.0.1";
+    private static final int PORT = 3306;
+    private static final String DATABASE = "lottery";
+    private static final String ENCODING = "UTF-8";
+    private static final String LOGINNAME = "root";
+    private static final String PASSWORD = "0523";
 
     static {
         try {
@@ -30,9 +33,9 @@ public class DBUtil {
      * @description 获取连接
      */
     public static Connection getConnection() throws SQLException {
-        String url = String.format("jdbc:mysql://%s:%d/%s?useUnicode=true&useSSL=false&characterEncoding=%s", ip, port, database, encoding);
+        String url = String.format("jdbc:mysql://%s:%d/%s?useSSL=false&characterEncoding=%s", IP, PORT, DATABASE, ENCODING);
 
-        return DriverManager.getConnection(url, loginName, password);
+        return DriverManager.getConnection(url, LOGINNAME, PASSWORD);
     }
 
 
@@ -46,7 +49,9 @@ public class DBUtil {
      * @description 单例模式
      */
     public static synchronized Connection getInstance() throws SQLException {
-        if (connection == null) connection = getConnection();
+        if (connection == null) {
+        	connection = getConnection();
+        }
 
         return connection;
     }
@@ -62,20 +67,23 @@ public class DBUtil {
      */
     public static void close(ResultSet rs, Statement stmt, Connection conn) {
         try {
-            if (rs != null)
+            if (rs != null) {
                 rs.close();
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         try {
-            if (stmt != null)
+            if (stmt != null) {
                 stmt.close();
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         try {
-            if (conn != null)
+            if (conn != null) {
                 conn.close();
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
