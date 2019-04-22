@@ -12,7 +12,7 @@ public class DBUtil {
     private static final String database = "lottery";
     private static final String encoding = "UTF-8";
     private static final String loginName = "root";
-    private static final String password = "0523";
+    private static final String password = "12345678";
 
     static {
         try {
@@ -30,7 +30,7 @@ public class DBUtil {
      * @description 获取连接
      */
     public static Connection getConnection() throws SQLException {
-        String url = String.format("jdbc:mysql://%s:%d/%s?useSSL=false&characterEncoding=%s", ip, port, database, encoding);
+        String url = String.format("jdbc:mysql://%s:%d/%s?useUnicode=true&useSSL=false&characterEncoding=%s", ip, port, database, encoding);
 
         return DriverManager.getConnection(url, loginName, password);
     }

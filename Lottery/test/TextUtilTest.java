@@ -1,5 +1,5 @@
-import org.junit.jupiter.api.Test;
 import lottery.util.TextUtil;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,9 +10,13 @@ import java.sql.SQLException;
  */
 public class TextUtilTest {
 
-    @Test
+        @Test
     public void main() throws IOException, SQLException {
         String fileName = "Lottery/test/QQrecord-2022.txt";
         TextUtil.resovle(fileName);
     }
+//    @Test
+//    public void main() {
+//        TextUtil.executePython();
+//    }
 }
